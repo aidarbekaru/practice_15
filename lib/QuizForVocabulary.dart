@@ -135,29 +135,18 @@ class _quizpageState extends State<quizpage> {
 
   void checkanswer(String k) {
 
-    // in the previous version this was
-    // mydata[2]["1"] == mydata[1]["1"][k]
-    // which i forgot to change
-    // so nake sure that this is now corrected
     if (mydata[2][i.toString()] == mydata[1][i.toString()][k]) {
-      // just a print sattement to check the correct working
-      // debugPrint(mydata[2][i.toString()] + " is equal to " + mydata[1][i.toString()][k]);
+     
       marks = marks + 5;
-      // changing the color variable to be green
       colortoshow = right;
     } else {
-      // just a print sattement to check the correct working
-      // debugPrint(mydata[2]["1"] + " is equal to " + mydata[1]["1"][k]);
       colortoshow = wrong;
     }
     setState(() {
-      // applying the changed color to the particular button that was selected
       btncolor[k] = colortoshow;
       canceltimer = true;
       disableAnswer = true;
     });
-    // nextquestion();
-    // changed timer duration to 1 second
     Timer(Duration(seconds: 2), nextquestion);
   }
 
